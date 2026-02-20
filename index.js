@@ -28,10 +28,12 @@ app.post('/submit', async (req, res) => {
 
 app.post('/dvds', async (req, res) => {
   try {
-     const dvdTableData = await pool.query('SELECT * FROM dvds');
+    const dvdTableData = await pool.query('SELECT * FROM dvds');
     console.log(dvdTableData);
+  } catch (err) {
+    res.status(500).send('Error: ' + err.message);
   }
-})
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
