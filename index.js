@@ -29,7 +29,7 @@ app.post('/submit', async (req, res) => {
 app.post('/dvds', async (req, res) => {
   try {
     const dvdTableData = await pool.query('SELECT * FROM dvds');
-    console.log(dvdTableData);
+    res.send(dvdTableData[0]);
   } catch (err) {
     res.status(500).send('Error: ' + err.message);
   }
