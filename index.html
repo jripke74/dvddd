@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="add dvd database record form">
+  <meta property="og:title" content="jeffripke.com">
+  <meta property="og:type" content="website">
+  <meta property="og:image"
+    content="./assets/images/jeffripke.jpg">
+  <meta property="og:url" content="https://www.jeffripke.com">
+  <title>DVD Entry Form</title>
+  <link rel="stylesheet" href="./main.css" />
+</head>
+
+<body>
+  <form action="/submit" method="POST">
+    <fieldset>
+      <legend>Basic DVD Information</legend>
+      <label for="title">Title of DVD</label>
+      <input type="text" id="title" name="title" required />
+      <label for="release-year-dvd">Release Year of DVD</label>
+      <input type="number" id="release-year-dvd" name="releaseyeardvd" />
+      <label for="release-year-movie">Release Year of Movie</label>
+      <input type="number" id="release-year-dvd" name="releaseyearmovie" />
+    </fieldset>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+
+</html>
