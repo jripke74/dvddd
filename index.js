@@ -26,7 +26,7 @@ app.post('/submit', async (req, res) => {
   }
 });
 
-app.post('/dvds', async (req, res) => {
+app.get('/dvds', async (req, res) => {
   try {
     const dvdTableData = await pool.query('SELECT * FROM dvds');
     res.send(dvdTableData[0]);
