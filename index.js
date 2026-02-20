@@ -20,11 +20,18 @@ app.post('/submit', async (req, res) => {
   const { title, releaseyeardvd, releaseyearmovie } = req.body;
   try {
     await pool.query('INSERT INTO dvds (title, releaseyeardvd, releaseyearmovie) VALUES ($1, $2, $3)', [title, releaseyeardvd, releaseyearmovie]);
-    res.send('Data stored successfully!');
+    res.redirect('/dvds');
   } catch (err) {
     res.status(500).send('Error: ' + err.message);
   }
 });
+
+app.post('/dvds', async (req, res) => {
+  try {
+     const dvdTableData = await pool.query('SELECT * FROM dvds');
+    console.log(dvdTableData);
+  }
+})
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
