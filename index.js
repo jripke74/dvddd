@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 app.post('/submit', async (req, res) => {
   const { title, releaseyeardvd, releaseyearmovie } = req.body;
   try {
-    await pool.query('INSERT INTO movies (title, releaseyeardvd, releaseyearmovie) VALUES ($1, $2, $3)', [title, releaseyeardvd, releaseyearmovie]);
+    await pool.query('INSERT INTO dvds (title, releaseyeardvd, releaseyearmovie) VALUES ($1, $2, $3)', [title, releaseyeardvd, releaseyearmovie]);
     res.send('Data stored successfully!');
   } catch (err) {
     res.status(500).send('Error: ' + err.message);
